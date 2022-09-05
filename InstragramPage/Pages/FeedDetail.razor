@@ -1,0 +1,68 @@
+﻿@inject IInstagramManagement Services
+
+<div class="feed">
+
+	@if (FeedList != null) foreach (var feed in FeedList)
+	{
+	<div class="post-header">
+		<img src="Images\@(feed.Creator).jpg" />
+		<div>@feed.Creator</div>
+		<i class="fas fa-ellipsis-v"></i>
+	</div>
+		<div class="post-image">
+			<img src="Images\@(feed.Id).jpg" />
+		</div>
+		<div class="post-footer">
+			<div class="post-icons">
+				<a class="like-@(feed.UserLike ? "red fas fa-heart" : "none far fa-heart")" @onclick="@(() => LikeDislikeCommand(feed))" @onclick:preventDefault></a>
+				<a class="far fa-comment"></a>
+				<a class="far fa-share-square"></a>
+				<a class="far fa-bookmark"></a>
+			</div>
+			<div class="post-detail">
+				<div class="likes">@feed.Likes Me gusta</div>
+
+				<div class="description">@feed.Description</div>
+
+				<div class="hashtags">
+					@string.Join(" ", Services.GetHashtags(feed.Id).Select(t => $"#{t}"))
+				</div>
+			</div>
+			<div class="post-comments">
+				<a>Ver commentarios</a>
+			</div>
+		</div>
+	}
+</div>
+
+@code {
+	[Parameter]
+	public string User { get; set; }
+
+	public IList<FeedItem> FeedList { get; set; }
+
+	public void LikeDislikeCommand(FeedItem item)
+	{
+		if (item.UserLike)
+			Services.Dislike(item.Id, this.User);
+		else
+			Services.Like(item.Id, this.User);
+
+		ReloadFeed();
+	}
+
+	public void ReloadFeed()
+	{
+		FeedList = Services.GetFeed(User);
+		
+		StateHasChanged();
+	}
+
+	protected override void OnInitialized()
+	{
+		ReloadFeed();
+
+		base.OnInitialized();
+	}
+
+}

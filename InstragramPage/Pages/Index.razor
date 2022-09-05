@@ -1,0 +1,12 @@
+﻿@page "/"
+
+<div class="Body">
+	<FeedDetail User="@Layout.User"></FeedDetail>
+</div>
+
+@code
+{
+	[CascadingParameter]
+	public MainLayout Layout { get; set; }
+
+}

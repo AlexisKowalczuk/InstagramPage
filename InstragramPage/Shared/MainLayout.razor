@@ -1,0 +1,71 @@
+﻿@inherits LayoutComponentBase
+@inject IInstagramManagement Services
+
+<CascadingValue Value="this">
+	<div class="main">
+		<div class="insta-logo">
+			<img src="Images\instagram-logo.png" />
+		</div>
+		<div class="main-header">
+
+			<img src="Images\logo.png" />
+			<div class="followers" @onmouseover="@(() => followersVisivility = true)" @onmouseout="@(() => followersVisivility = false)">
+				<h3>@Followers.Count</h3>
+				<h4>Seguidos</h4>
+			</div>
+			@if (followersVisivility)
+			{
+				<div class="followerTooltip">
+					@foreach (var item in Followers)
+					{
+						<div>@item.Id</div>
+					}
+				</div>
+			}
+
+		<div class="followers" @onmouseover="@(() => followsVisivility = true)" @onmouseout="@(() => followsVisivility = false)">
+			<h3>@Follows.Count</h3>
+			<h4>Seguidores</h4>
+		</div>
+
+			@if (followsVisivility)
+			{
+				<div class="followTooltip">
+					@foreach (var item in Follows)
+					{
+						<div>@item.Id</div>
+					}
+				</div>
+			}
+
+		</div>
+		<div class="main-content">
+			<div class="content px-4">
+				@Body
+			</div>
+		</div>
+	</div>
+</CascadingValue>
+
+@code
+{
+	public IList<User> Followers;
+	public IList<User> Follows;
+	public string User = "Alexis";
+
+	public bool followersVisivility;
+	public bool followsVisivility;
+
+	protected override void OnParametersSet()
+	{
+		base.OnParametersSet();
+
+		Followers = Services.GetFollowers(User);
+		Follows = Services.GetFollows(User);
+	}
+
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+	}
+}

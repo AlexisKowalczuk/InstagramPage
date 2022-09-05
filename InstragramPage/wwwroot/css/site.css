@@ -1,0 +1,187 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+a, .btn-link {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.content {
+    padding-top: 1.1rem;
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+.main-header {
+  padding-top: 4vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.main-header > img {
+  height: 7vh;
+}
+
+.main {
+  background: black;
+  border-radius: 4vh;
+  height: 100vh;
+  margin: 1vh 36vw 0;
+}
+
+h2, h3, h4 {
+  text-align: center;
+  color: #efeeee;
+}
+
+.post-header {
+  display: flex;
+  margin: 10px 0;
+  align-items: center;
+}
+
+.post-header div {
+  color: #efeeee;
+}
+
+.post-header > img {
+  height: 40px;
+  width: 40px;
+  border-radius: 120px;
+}
+
+.post-header > div {
+  font-size: 2.4vh;
+  margin-left: 0.5vw;
+}
+
+.post-image > img {
+  width: 100%;
+}
+
+.post-footer {
+  color: #efeeee;
+}
+
+.like-red {
+  color: #e40000 !important;
+}
+
+.like-none {
+  color: white !important;
+}
+
+.insta-logo > img {
+  padding-top: 3vh;
+  height: 8vh;
+}
+
+.main-content {
+  height: 76vh;
+  overflow-y: auto;
+}
+
+.post-icons {
+  margin: 5px 0;
+  display: flex;
+}
+
+.post-icons a {
+  font-size: 2.5vh;
+  margin: 0 5px;
+}
+
+.post-comments {
+  color: #9c9c9c;
+}
+
+.post-detail div {
+  margin: 5px 0;
+}
+
+.likes {
+  font-weight: bold;
+}
+
+.fa-ellipsis-v {
+  margin-left: auto;
+  font-size: 2.2vh;
+  color: white;
+  width: 10px;
+}
+
+.fa-bookmark {
+  margin-left: auto !important;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+  *::-webkit-scrollbar {
+    width: 0.3em;
+  }
+
+  *::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+  }
+.followerTooltip, .followTooltip {
+  position: absolute;
+  background: #272525;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.followerTooltip {
+  top: 120px;
+}
+.followTooltip {
+  left: 1100px;
+  top: 120px;
+}
+
+.hashtags {
+  color:#77c0ff;
+}
